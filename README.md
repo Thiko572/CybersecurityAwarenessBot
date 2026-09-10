@@ -32,6 +32,7 @@ A C# Console Application that acts as a virtual assistant to educate users on cy
 - Windows OS
 
 ## GitHub Actions
+CI workflow:passed successfully
 
 ## Video Presentation
 Unlisted YouTube link: [https://youtu.be/XdHuBVqOXE0]
