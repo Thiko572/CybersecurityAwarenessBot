@@ -1,54 +1,80 @@
-﻿using System;
-using System.Threading;
-
-namespace CybersecurityAwarenessBot
+﻿namespace CybersecurityChatbotGUI
 {
     public class Chatbot
     {
-        private UserProfile _user = new UserProfile();
-        private AsciiArt _art = new AsciiArt();
-        private ResponseHandler _handler = new ResponseHandler();
-
-        public void Start()
+        // ASCII art welcome banner
+        public string GetAsciiArt()
         {
-            // 1. Play voice greeting FIRST
-           
-           // 2. Display ASCII art
-            _art.DisplayLogo();
+            return @"
+============================================
+   ____      _                                        _ _          
+ / ___|   _| |__   ___ _ __ ___  ___  ___ _   _ _ __(_) |_ _   _  
+| |  | | | | '_ \ / _ \ '__/ __|/ _ \/ __| | | | '__| | __| | | | 
+| |__| |_| | |_) |  __/ |  \__ \  __/ (__| |_| | |  | | |_| |_| | 
+ \____\__, |_.__/ \___|_|  |___/\___|\___|\__,_|_|  |_|\__|\__, | 
+      |___/                                                |___/
 
-            // 3. Ask for name
-            while (string.IsNullOrWhiteSpace(_user.Name))
+       CYBERSECURITY CHATBOT
+       Your Online Safety Assistant
+============================================
+";
+        }
+
+        public string GetResponse(string message)
+        {
+            message = message.ToLower().Trim();
+
+            if (message.Contains("hello") || message == "hi")
             {
-                Console.Write("Bot > Hello! What is your name?\nYou > ");
-                string input = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(input)) _user.Name = input.Trim();
-                else Console.WriteLine("Bot > I did not catch your name. Please enter it again.");
+                return "Hello! I am your Cybersecurity Awareness Assistant.";
             }
 
-            // 4. Personalised greeting
-            Console.WriteLine($"\nBot > Welcome {_user.Name}!");
-            Console.WriteLine("I'm your Cybersecurity Awareness Assistant.");
-            Console.WriteLine("\n--------------------------------------------------");
-            Console.WriteLine("Ask me about: Password safety, Phishing, Safe browsing, or My purpose");
-            Console.WriteLine("--------------------------------------------------\n");
-
-            // 5. Conversation loop
-            while (true)
+            if (message.Contains("password"))
             {
-                Console.Write("You > ");
-                string userInput = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(userInput)) { Console.WriteLine("Bot > Please type a question."); continue; }
-
-                if (userInput.ToLower() == "exit") { Console.WriteLine($"Bot > Goodbye, {_user.Name}. Stay safe online!"); break; }
-
-                string response = _handler.GetResponse(userInput);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Bot > ");
-                foreach (char c in response) { Console.Write(c); Thread.Sleep(15); }
-                Console.WriteLine("\n");
-                Console.ResetColor();
+                return "Use a strong password with at least 16 characters. Never share it.";
             }
+
+            if (message.Contains("phishing"))
+            {
+                return "Be careful of suspicious emails and links. Never click links you do not trust.";
+            }
+
+            if (message.Contains("scam"))
+            {
+                return "Be careful of offers that sound too good to be true. Never share your banking PIN.";
+            }
+
+            if (message.Contains("privacy"))
+            {
+                return "Protect your personal information and use secure internet connections.";
+            }
+
+            if (message.Contains("malware") || message.Contains("virus"))
+            {
+                return "Keep your antivirus software updated and avoid downloading unknown files.";
+            }
+
+            if (message.Contains("safe browsing"))
+            {
+                return "Visit trusted websites and check that the website address is correct.";
+            }
+
+            if (message.Contains("two-factor") || message.Contains("two factor"))
+            {
+                return "Enable two-factor authentication to add extra security to your accounts.";
+            }
+
+            if (message.Contains("worried") || message.Contains("scared"))
+            {
+                return "Do not worry. I can help you learn how to stay safe online.";
+            }
+
+            if (message == "help")
+            {
+                return "Ask me about passwords, phishing, scams, privacy, malware, safe browsing or two-factor authentication.";
+            }
+
+            return "I am not sure about that. Please ask me about a cybersecurity topic.";
         }
     }
 }
