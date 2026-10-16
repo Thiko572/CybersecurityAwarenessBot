@@ -1,11 +1,16 @@
-﻿namespace CybersecurityAwarenessBot
+using System;
+using System.Windows.Forms;
+
+namespace CybersecurityChatbotGUI
 {
-    public class Program
+    internal static class Program
     {
-        public static void Main(string[] args)
+        [STAThread]
+        static void Main()
         {
-            Chatbot bot = new Chatbot();
-            bot.Start();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new ChatbotForm());
         }
     }
 }
