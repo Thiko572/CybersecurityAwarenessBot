@@ -1,45 +1,41 @@
-﻿# PROG6221 Part 2 - Cybersecurity Awareness Chatbot
+PROG6221 Cybersecurity Awareness Chatbot - Final POE
 
-Name:[Thikolweli]
-Student Number:[ST10498479]
+Student Information
 
-## Project Overview
-This is my Part 2 submission for PROG6221. It takes the console chatbot I built in Part 1 and turns it into a Windows Forms application. The bot now runs in a proper window with a text box and a Send button. It also has new features like keyword recognition, random responses, memory, sentiment detection and conversation flow.
+Name: [Thikolweli] Student Number: [St10498479] Module: PROG6221 Programming 2A
 
-## Features
-- Plays a voice greeting when the app opens
-- Shows a title and a banner at the top of the window
-- Recognises keywords like password, scam, privacy and phishing
-- Gives a different tip each time you ask about the same topic
-- Remembers your name and favourite topic and uses them later
-- Detects if you sound worried, curious or frustrated and adjusts its reply
-- Handles blank or unknown input without crashing
-- Code is split into separate classes so it stays readable
+Project Overview
 
-##window Layout
-- lblTitle - shows the title at the top
-- rtbChatHistory - shows the full conversation
-- txtUserInput - where you type your message
-- btnSend - sends your message to the bot
+This application is a GUI-based Cybersecurity Awareness Assistant that combines the functionality developed in Parts 1, 2 and 3. It helps users manage cybersecurity tasks, test their knowledge with a quiz, and learn about safe online practices.
 
-## How to Run the Project
-1. Open the .sln file in Visual Studio 2022.
-2. In Solution Explorer, right-click CybersecurityChatbotGUI and click Set as Startup Project.
-3. Press Ctrl + Shift + B to build. The Error List should say "Build succeeded".
-4. Press Ctrl + F5 to run the application.
-5. The window opens, the voice greeting plays, and you can type your message and click Send.
+Final Features
 
-## Project Structure
-- Program.cs - starts the app
-- ChatbotForm.cs - the GUI window
-- Chatbot.cs - main conversation logic
-- KeywordResponder.cs - handles topics and random responses
-- MemoryStore.cs - remembers user details
-- SentimentDetector.cs - detects the user's mood
-- VoiceGreeting.cs - plays the WAV greeting
-- Assets/greeting.wav - the voice file
+Part 1 & 2
 
-## GitHub Actions
+GUI interaction with ASCII art
+Keyword recognition and sentiment detection
+Memory and recall (remembers the last topic discussed)
+Part 3
 
-## Video Presentation
-https://youtu.be/KMaCoSZXuFI
+MySQL Task Assistant (Add, View, Complete, Delete)
+Optional reminders
+Cybersecurity quiz (12 questions with immediate feedback and score)
+NLP simulation using string/phrase detection
+Activity Log (tracks recent actions)
+Database Setup
+
+To run this application, you must have MySQL installed.
+
+Run the database_setup.sql script in MySQL to create the database.
+Open the DatabaseConfig.cs file.
+Replace YOUR_PASSWORD with your local MySQL password.
+Run the application.
+How to Use
+
+Chat tab: Type cybersecurity questions or commands like "start quiz", "show tasks", or "I hate scams".
+Tasks tab: Create tasks and click "Add Task". Select a task in the grid to complete or delete it.
+Quiz tab: Click "Start Quiz", select an answer, and click "Submit Answer".
+Activity Log tab: Click "Refresh Activity" to see recent actions.
+Video Presentation
+
+https://youtu.be/fig2nng5Nio
